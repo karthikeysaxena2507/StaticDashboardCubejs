@@ -3,14 +3,105 @@
     margin-bottom: 30px;
 }
 
-.center {
-    text-align: center;
+#bar {
+    background-color: rgb(175, 104, 241);
 }
 
 .right {
     margin-right: 5px;
 }
 
+.upper-margin {
+    margin-top: 120px;
+}
+
 .top {
     margin-top: 10px;
+}
+
+.left {
+    margin-left: 15px;
+}
+
+.btn {
+    border: 2px solid rgb(215, 159, 252);
+    margin-right: 10px;
+}
+
+.btn:hover {
+    color: rgb(215, 159, 252);
+}
+
+input[type="search"] {
+    padding: 6px 6px;
+}
+
+.box {
+    background-color: rgb(227, 195, 248);
+    border: 2px solid black;
+    font-size: larger;
+    border-radius: 4px;
+}
+
+.center {
+    text-align: center;
+}
+
+.expand {
+    transition: all 0.3s ease-in-out;
+  }
+  
+.expand:hover {
+  transform: scale(1.10);
+  cursor: pointer;
+  color: black;
+}
+
+
+.download {
+    color: black;
+}
+
+
+.value {
+    padding-right: 12px;
+    font-size: large;
+} 
+
+.remove {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 12px;
+    display: inline-block;
+    border-left: 1px solid black;
+}
+.remove:hover {
+    cursor: pointer;
+}
+
+.item {
+    background-color: rgb(235, 210, 252);
+    border: 2px solid black;
+    border-radius: 5px;
+    display: inline;
+    padding: 7px 10px;
+    margin: 10px 10px;
+}
+
+.plus {
+    display: inline-block;
+    font-size: large;
+}
+
+.boxes {
+    padding: 0px 15px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    /* border: 2px solid red; */
+}
+
+.charts {
+    margin: 10px 50px;
 }

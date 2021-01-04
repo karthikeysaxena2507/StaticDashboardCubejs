@@ -1,15 +1,23 @@
+/* eslint-disable no-loop-func */
 import cubejs from '@cubejs-client/core';
 import { QueryRenderer } from '@cubejs-client/react';
 import { Spin } from 'antd';
 import 'antd/dist/antd.css';
 import React, { useState } from 'react';
 import { Chart, Axis, Tooltip, Geom, } from 'bizcharts';
-// import { Row, Col, Statistic, Table } from 'antd';
-// import { Coord, Legend } from "bizcharts";
+import { CSVLink } from "react-csv";
 
 const Area = (props) => {
 
   var [count, setCount] = useState(0);
+
+  var [csvData, setCsvData] = useState([]);
+
+  var dataSource = [];
+
+  var columns = [];
+
+  var [headers, setHeaders] = useState([]);
 
     const stackedChartData = (resultSet) => {
       const data = resultSet
@@ -22,7 +30,6 @@ const Area = (props) => {
           }))
         )
         .reduce((a, b) => a.concat(b), []);
-      // console.log(data);
       return data;
     };
 
@@ -41,12 +48,10 @@ const Area = (props) => {
         return <Spin />;
       }
 
-      const dataSource = resultSet.tablePivot();
+      dataSource = resultSet.tablePivot();
+      columns = resultSet.tableColumns();
       setCount(dataSource.length);
-      // const columns = resultSet.tableColumns();
-      // console.log(dataSource);
-      // console.log(columns);
-      // console.log(resultSet.getString("backwardCompatibleData"));
+
       return (
       <Chart
         scale={{
@@ -71,9 +76,35 @@ const Area = (props) => {
 
     };
 
+    function set() {
+      setCsvData(dataSource);
+      setHeaders(columns);
+      var temp = [];
+      columns.forEach((column) => {
+        temp.push({label: column.shortTitle, key: column.key});
+      })
+      setHeaders(temp);
+      alert("chart data updated, you may now download it");
+    }
+
     const ChartRenderer = () => {
       return (<div>
-        <h3> No. of Items: {count} </h3>
+      <p> First update and then download </p>
+        <button onClick={set} className="box expand right"> Update Charts Table </button>
+        <span className="top left">
+          <button className="box expand"> 
+            <CSVLink 
+              data={csvData} 
+              filename={"Chart-DataTable.csv"} 
+              headers={headers}
+              className="download"
+            >
+              Download Chart Table
+            </CSVLink> 
+          </button>
+        </span>
+        <h3 className="top"> No. of Items: {count} </h3>
+        <h2 className="top"> Area Chart </h2>
         <QueryRenderer
           query={{
       "dimensions": props.dimensions,

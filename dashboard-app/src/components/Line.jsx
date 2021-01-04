@@ -2,14 +2,12 @@ import cubejs from '@cubejs-client/core';
 import { QueryRenderer } from '@cubejs-client/react';
 import { Spin } from 'antd';
 import 'antd/dist/antd.css';
-import React, { useState } from 'react';
+import React from 'react';
 import { Chart, Axis, Tooltip, Geom } from 'bizcharts';
 // import { Row, Col, Statistic, Table } from 'antd';
 // import { Coord, Legend } from "bizcharts";
 
 const Line = (props) => {
-
-  var [count, setCount] = useState(0);
 
     const stackedChartData = (resultSet) => {
       const data = resultSet
@@ -40,9 +38,6 @@ const Line = (props) => {
         return <Spin />;
       }
 
-      const dataSource = resultSet.tablePivot();
-      setCount(dataSource.length);
-
       return (
       <Chart
         scale={{
@@ -69,7 +64,7 @@ const Line = (props) => {
 
     const ChartRenderer = () => {
       return (<div>
-      <h3> No. of Items: {count} </h3>
+      <h2 className="top"> Line Chart </h2>
         <QueryRenderer
           query={{
       "dimensions": props.dimensions,
