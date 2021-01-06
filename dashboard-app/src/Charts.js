@@ -6,7 +6,7 @@ import Line from "./Line";
 import Area from "./Area";
 import Navbar from "./Navbar";
 
-function App() {
+const Charts = () => {
 
   var [measures, setMeasures] = useState([]);
   var [dimensions, setDimensions] = useState([]);
@@ -100,7 +100,7 @@ function App() {
   }
 
 
-  return (<div className="container-fluid">
+  return (<div>
   <Navbar />
   <div className="upper-margin">
     <div className="top boxes upper-margin">
@@ -170,7 +170,6 @@ function App() {
       </span>
     </div>
     <div className="charts">
-      {/* <div className="row"> */}
         <div className="space center">
           <Area
             key = {4}
@@ -187,8 +186,6 @@ function App() {
             filters = {filters}
           />
         </div>
-      {/* </div> */}
-      {/* <div className="row"> */}
         <div className="space center">
           <Line
             key = {3}
@@ -205,11 +202,10 @@ function App() {
             filters = {filters}
           />
         </div>
-      {/* </div> */}
     </div>
   </div>
 </div>);
 }
   
 
-export default App;
+export default Charts;

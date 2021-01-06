@@ -88,6 +88,10 @@ input[type="search"] {
     margin: 10px 10px;
 }
 
+.bt {
+    font-size: x-large;
+}
+
 .plus {
     display: inline-block;
     font-size: large;

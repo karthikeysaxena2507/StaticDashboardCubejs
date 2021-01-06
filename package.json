@@ -10,5 +10,11 @@
   "devDependencies": {
     "@cubejs-backend/mongobi-driver": "^0.25.1",
     "@cubejs-backend/server": "^0.25.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^1.0.6"
   }
 }
