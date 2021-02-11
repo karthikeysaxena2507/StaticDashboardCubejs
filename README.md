@@ -1,3 +1,3 @@
-# cube-react
+# StaticDashboardCubejs
 
-I built a static dashboard using cubejs, reactjs and mongodb
+I built a static dashboard containing charts using cubejs, reactjs and mongodb
